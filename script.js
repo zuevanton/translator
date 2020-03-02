@@ -13,7 +13,7 @@ class Translator {
   }
 
   translate() {
-    let text = this.input.value;
+    const text = encodeURIComponent(this.input.value);
     this.url = `${this.api}?key=${this.key}&text=${text}&lang=${this.langFirst}-${this.langSecond}`;
     this.postText(this.url);
   }
@@ -33,6 +33,7 @@ class Translator {
   }
 
   swapLang (){
+
     const contentTemp = this.input.value,
           langTemp = this.langFirst;
     this.langFirst = this.langSecond;
